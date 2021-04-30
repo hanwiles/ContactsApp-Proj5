@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ContactsApp.ViewModels"
+             x:Class="ContactsApp.Views.EditDeleteContactViewPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10" Spacing="10">
+            <StackLayout.BindingContext>
+                <local:ContactsViewModel/>
+            </StackLayout.BindingContext>
+            <Label Text="First Name: "
+                   FontSize="Large"/>
+            <Entry Placeholder="Enter First Name"
+                   Text="{Binding SelectedContact.FirstName}"/>
+            <Label Text="Last Name: "
+                   FontSize="Large"/>
+            <Entry Placeholder="Enter Last Name"
+                   Text="{Binding SelectedContact.LastName}"/>
+            <Label Text="Contact Type: "
+                   FontSize="Large"/>
+            <Entry Placeholder="Enter Contact Type"
+                   Text="{Binding SelectedContact.ContactType}"/>
+            <Button Text="Save Edit"
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="Pop_Clicked"/>
+            <Button Text="Cancel Edit"
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="Pop_Clicked"
+                    Command="{Binding CancelCommand}"/>
+            <Button Text="Delete Contact"
+                    HorizontalOptions="FillAndExpand"
+                    Command="{Binding DeleteCommand}"
+                    Clicked="Pop_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
